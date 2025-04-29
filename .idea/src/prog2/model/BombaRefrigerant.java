@@ -25,8 +25,8 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      */
     @Override
     public void activa() throws CentralUBException {
-        if(foraDeServei==true) {
-            throw new CentralUBException
+        if(foraDeServei) {
+            throw new CentralUBException;
         }
         else {
             activada = true;
@@ -74,7 +74,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      */
     @Override
     public float getCapacitat() {
-        if(activada==false) {
+        if(!activada) {
             return 0.0f;
         }
         else {
