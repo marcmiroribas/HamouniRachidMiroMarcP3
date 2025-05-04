@@ -6,4 +6,8 @@ public class PaginaBitacola {
     public PaginaBitacola(int dia) {
         this.dia = dia;
     }
+
+    public int getDia() {
+        return dia;
+    }
 }

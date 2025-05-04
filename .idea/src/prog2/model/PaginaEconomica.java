@@ -1,7 +1,6 @@
 package prog2.model;
 
 public class PaginaEconomica extends PaginaBitacola{
-    private int dia;
     private float demandaPotencia;
     private float potenciaGenerada;
     private float percentatgeSatisfet;
@@ -54,13 +53,6 @@ public class PaginaEconomica extends PaginaBitacola{
         this.demandaPotencia = demandaPotencia;
     }
 
-    public int getDia() {
-        return dia;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
 
     public float getPenalitzacioExces() {
         return penalitzacioExces;

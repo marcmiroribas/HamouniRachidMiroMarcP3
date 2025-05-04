@@ -4,10 +4,12 @@ public class BombaRefrigerant implements InBombaRefrigerant{
     private int id;
     private boolean activada;
     private boolean foraDeServei;
+    private final VariableUniforme variableUniforme;
 
 
     public BombaRefrigerant(int id, VariableUniforme variableUniforme) {
         this.id = id;
+        this.variableUniforme = variableUniforme;
 
     }
 
@@ -58,7 +60,11 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      */
     @Override
     public void revisa(PaginaIncidencies p) {
-
+        if (variableUniforme.seguentValor() < 0.25f) { // 25% probabilidad
+            this.foraDeServei = true;
+            this.activada = false; // Se desactiva automáticamente
+            p.afegeixIncidencia("La bomba refrigerant " + id + " està fora de servei");
+        }
     }
 
     /**
@@ -78,7 +84,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
             return 0.0f;
         }
         else {
-
+        return 250;
         }
 
     }
@@ -89,8 +95,11 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      */
     @Override
     public float getCostOperatiu() {
-        if(activada==false) {
+        if(!activada) {
             return 0.0f;
+        }
+        else {
+            return 130;
         }
     }
 
