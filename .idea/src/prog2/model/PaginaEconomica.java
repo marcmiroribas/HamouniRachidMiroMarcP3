@@ -1,6 +1,6 @@
 package prog2.model;
 
-public class PaginaEconomica extends PaginaBitacola{
+public class PaginaEconomica extends PaginaBitacola {
     private float demandaPotencia;
     private float potenciaGenerada;
     private float percentatgeSatisfet;

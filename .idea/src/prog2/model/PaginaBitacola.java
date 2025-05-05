@@ -1,6 +1,8 @@
 package prog2.model;
 
-public class PaginaBitacola {
+import java.io.Serializable;
+
+public class PaginaBitacola  {
     private int dia;
 
     public PaginaBitacola(int dia) {

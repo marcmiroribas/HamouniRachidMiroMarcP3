@@ -1,4 +1,5 @@
 package prog2.model;
+import prog2.vista.CentralUBException;
 
 public class BombaRefrigerant implements InBombaRefrigerant{
     private int id;
@@ -28,7 +29,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
     @Override
     public void activa() throws CentralUBException {
         if(foraDeServei) {
-            throw new CentralUBException;
+            throw new CentralUBException("La bomba està fora de servei");
         }
         else {
             activada = true;
@@ -58,6 +59,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      * @param p Objecte de tipus PaginaIncidencies per a registrar si la bomba
      * es queda fora de servei.
      */
+
     @Override
     public void revisa(PaginaIncidencies p) {
         if (variableUniforme.seguentValor() < 0.25f) { // 25% probabilidad
