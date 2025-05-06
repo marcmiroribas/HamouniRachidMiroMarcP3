@@ -7,7 +7,6 @@ import java.util.List;
 public class Bitacola implements InBitacola {
     private ArrayList<PaginaBitacola> paginesBit;
 
-    // Constructor
     public Bitacola() {
         this.paginesBit = new ArrayList<>();
     }

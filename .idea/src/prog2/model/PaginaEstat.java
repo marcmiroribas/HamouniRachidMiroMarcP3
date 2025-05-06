@@ -17,6 +17,10 @@ public class PaginaEstat extends PaginaBitacola{
         this.outGenerador = outGenerador;
         this.outTurbina = outTurbina;
     }
+    @Override
+    public int getDia() {
+        return super.getDia();
+    }
 
 
     public float getGrau() {
@@ -62,7 +66,7 @@ public class PaginaEstat extends PaginaBitacola{
     @Override
     public String toString() {
         String resultat = "# Pàgina Estat\n" +
-                "Dia: " + getDia() + "\n" +
+                "Dia: " + super.getDia() + "\n" +
                 "Inserció Barres: " + String.format("%.1f", grau) + " %\n" +
                 "Output Reactor: " + String.format("%.1f", outReactor) + " Graus\n" +
                 "Output Sistema de Refrigeració: " + String.format("%.1f", outRefrigeracio) + " Graus\n" +

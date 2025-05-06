@@ -16,6 +16,10 @@ public class PaginaIncidencies extends PaginaBitacola{
         incidencies.add(descIncidencia);
 
     }
+    @Override
+    public int getDia() {
+        return super.getDia();
+    }
 
 
     public String toString() {

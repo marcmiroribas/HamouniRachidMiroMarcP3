@@ -5,7 +5,9 @@ public class BombaRefrigerant implements InBombaRefrigerant{
     private int id;
     private boolean activada;
     private boolean foraDeServei;
-    private final VariableUniforme variableUniforme;
+    private VariableUniforme variableUniforme;
+    private static final float CAP_REFRIGERACIO = 250;
+    private static final float COST_OPERACIONAL = 130;
 
 
     public BombaRefrigerant(int id, VariableUniforme variableUniforme) {
@@ -60,6 +62,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
      * es queda fora de servei.
      */
 
+
     @Override
     public void revisa(PaginaIncidencies p) {
         if (variableUniforme.seguentValor() < 0.25f) { // 25% probabilidad
@@ -86,7 +89,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
             return 0.0f;
         }
         else {
-        return 250;
+        return CAP_REFRIGERACIO;
         }
 
     }
@@ -101,7 +104,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
             return 0.0f;
         }
         else {
-            return 130;
+            return COST_OPERACIONAL;
         }
     }
 
