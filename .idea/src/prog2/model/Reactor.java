@@ -118,4 +118,5 @@ public class Reactor implements InComponent {
                 "°C, insercioBarres=" + insercioBarres +
                 "%, foraDeServei=" + foraDeServei + "]";
     }
+
 }

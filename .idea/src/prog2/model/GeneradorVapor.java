@@ -39,4 +39,5 @@ public class GeneradorVapor implements InComponent {
     public float calculaOutput(float input) {
         return activat ? input * 0.9f : 0f;
     }
+
 }

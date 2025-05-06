@@ -112,4 +112,5 @@ public class BombaRefrigerant implements InBombaRefrigerant{
     public String toString() {
         return "Id="+id+", Activat="+activada+", Fora de servei="+foraDeServei;
     }
+
 }

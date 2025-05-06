@@ -39,4 +39,5 @@ public class Turbina implements InComponent {
     public float calculaOutput(float input) {
         return (activat && input >= 100) ? input * 2f : 0f;
     }
+
 }
