@@ -1,19 +1,19 @@
 package prog2.model;
+import prog2.vista.CentralUBException;
 
-public class BombaRefrigerant implements InBombaRefrigerant {
+public class BombaRefrigerant implements InBombaRefrigerant{
     private int id;
     private boolean activada;
     private boolean foraDeServei;
     private VariableUniforme variableUniforme;
+    private static final float CAP_REFRIGERACIO = 250;
+    private static final float COST_OPERACIONAL = 130;
 
-    private static final float CAPACITAT = 250f;
-    private static final float COST_OPERATIU = 5f;
 
     public BombaRefrigerant(int id, VariableUniforme variableUniforme) {
         this.id = id;
-        this.activada = false;
-        this.foraDeServei = false;
         this.variableUniforme = variableUniforme;
+
     }
 
     /**
@@ -30,12 +30,13 @@ public class BombaRefrigerant implements InBombaRefrigerant {
      */
     @Override
     public void activa() throws CentralUBException {
-        if (foraDeServei) {
-            throw new CentralUBException("La bomba " + id + " està fora de servei i no es pot activar.");
+        if(foraDeServei) {
+            throw new CentralUBException("La bomba està fora de servei");
         }
-        activada = true;
+        else {
+            activada = true;
+        }
     }
-
     /**
      * Desactiva la bomba refrigerant.
      */
@@ -60,13 +61,14 @@ public class BombaRefrigerant implements InBombaRefrigerant {
      * @param p Objecte de tipus PaginaIncidencies per a registrar si la bomba
      * es queda fora de servei.
      */
+
+
     @Override
     public void revisa(PaginaIncidencies p) {
-        double valor = variableUniforme.seguentValor();
-        if (!foraDeServei && valor < 0.25) {
-            foraDeServei = true;
-            activada = false;
-            p.afegeixIncidencia("La bomba " + id + " ha quedat fora de servei.");
+        if (variableUniforme.seguentValor() < 0.25f) { // 25% probabilidad
+            this.foraDeServei = true;
+            this.activada = false; // Se desactiva automáticamente
+            p.afegeixIncidencia("La bomba refrigerant " + id + " està fora de servei");
         }
     }
 
@@ -77,14 +79,19 @@ public class BombaRefrigerant implements InBombaRefrigerant {
     public boolean getForaDeServei() {
         return foraDeServei;
     }
-
     /**
      * Retorna la capacitat de refrigeració en graus. Si la bomba no
      * està activada, retorna zero.
      */
     @Override
     public float getCapacitat() {
-        return activada ? CAPACITAT : 0f;
+        if(!activada) {
+            return 0.0f;
+        }
+        else {
+        return CAP_REFRIGERACIO;
+        }
+
     }
 
     /**
@@ -93,11 +100,16 @@ public class BombaRefrigerant implements InBombaRefrigerant {
      */
     @Override
     public float getCostOperatiu() {
-        return activada ? COST_OPERATIU : 0f;
+        if(!activada) {
+            return 0.0f;
+        }
+        else {
+            return COST_OPERACIONAL;
+        }
     }
 
     @Override
     public String toString() {
-        return "Id=" + id + ", Activat=" + activada + ", Fora de servei=" + foraDeServei;
+        return "Id="+id+", Activat="+activada+", Fora de servei="+foraDeServei;
     }
 }

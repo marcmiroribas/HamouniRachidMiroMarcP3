@@ -1,6 +1,6 @@
 package prog2.model;
 
-import java.io.Serializable;
+
 
 public class PaginaBitacola  {
     private int dia;
@@ -11,5 +11,10 @@ public class PaginaBitacola  {
 
     public int getDia() {
         return dia;
+    }
+
+    @Override
+    public String toString() {
+        return "Dia: " + dia;
     }
 }

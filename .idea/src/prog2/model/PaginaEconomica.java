@@ -78,8 +78,14 @@ public class PaginaEconomica extends PaginaBitacola {
         this.guanys = guanys;
     }
 
+    @Override
+    public int getDia() {
+        return super.getDia();
+    }
+
+    @Override
     public String toString() {
-        String resultat = "# Pagina Econòmica\n" +
+        return "# Pagina Econòmica\n" +
                 "Dia: " + getDia() + "\n" +
                 "Demanda de Potència: " + getDemandaPotencia() + "\n" +
                 "Potência Generada: " + getPotenciaGenerada() + "\n" +
@@ -88,7 +94,6 @@ public class PaginaEconomica extends PaginaBitacola {
                 "Penalització Excés Producció: " + getPenalitzacioExces() + " Unitats Econòmiques\n" +
                 "Cost Operatiu: " + getCostOperatiu() + " Unitats Econòmiques\n" +
                 "Guanys acumulats: " + getGuanys() + " Unitats Econòmiques\n";
-        return resultat;
 
     }
 }
