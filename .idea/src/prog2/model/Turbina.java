@@ -11,7 +11,7 @@ public class Turbina implements InComponent {
     }
 
     @Override
-    public void activa() throws CentralUBException {
+    public void activa()  {
         this.activat = true;
     }
 

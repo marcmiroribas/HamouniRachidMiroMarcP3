@@ -1,6 +1,8 @@
 package prog2.model;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import prog2.vista.CentralUBException;
 
 public class SistemaRefrigeracio implements InComponent {
@@ -18,7 +20,7 @@ public class SistemaRefrigeracio implements InComponent {
     @Override
     public void activa() throws CentralUBException {
         for (BombaRefrigerant bomba : bombes) {
-            if (!bomba.estaForaServei()) {
+            if (!bomba.getForaDeServei()) {
                 bomba.activa();
             }
         }
@@ -34,7 +36,7 @@ public class SistemaRefrigeracio implements InComponent {
     @Override
     public boolean getActivat() {
         for (BombaRefrigerant bomba : bombes) {
-            if (bomba.getActivada()) {
+            if (bomba.getActivat()) {
                 return true;
             }
         }
@@ -45,7 +47,7 @@ public class SistemaRefrigeracio implements InComponent {
     public void revisa(PaginaIncidencies p) {
         for (BombaRefrigerant bomba : bombes) {
             bomba.revisa(p);
-            if (bomba.estaForaServei() && bomba.getActivat()) {
+            if (bomba.getForaDeServei() && bomba.getActivat()) {
                 bomba.desactiva();
             }
         }
@@ -55,7 +57,7 @@ public class SistemaRefrigeracio implements InComponent {
     public float getCostOperatiu() {
         float cost = 0;
         for (BombaRefrigerant bomba : bombes) {
-            if (bomba.getActivada()) {
+            if (bomba.getActivat()) {
                 cost = cost + bomba.getCostOperatiu();
             }
         }
@@ -66,7 +68,7 @@ public class SistemaRefrigeracio implements InComponent {
     public float calculaOutput(float input) {
         int bombesActives = 0;
         for (BombaRefrigerant bomba : bombes) {
-            if (bomba.getActivada()) {
+            if (bomba.getActivat()) {
                 bombesActives++;
             }
         }
@@ -75,4 +77,12 @@ public class SistemaRefrigeracio implements InComponent {
         return Math.min(input, capacitatTotal);
     }
 
+    public BombaRefrigerant getBomba(int id) throws CentralUBException {
+        for (BombaRefrigerant bomba : bombes) {
+            if (bomba.getId() == id) {
+                return bomba;
+            }
+        }
+        throw new CentralUBException("No s'ha trobat la bomba amb ID: " + id);
+    }
 }

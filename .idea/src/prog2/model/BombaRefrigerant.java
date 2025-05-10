@@ -10,7 +10,7 @@ public class BombaRefrigerant implements InBombaRefrigerant{
     private static final float COST_OPERACIONAL = 130;
 
 
-    public BombaRefrigerant(int id, VariableUniforme variableUniforme) {
+    public BombaRefrigerant(VariableUniforme variableUniforme, int id) {
         this.id = id;
         this.variableUniforme = variableUniforme;
 

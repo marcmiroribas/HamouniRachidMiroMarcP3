@@ -30,6 +30,17 @@ public class Bitacola implements InBitacola {
 
         return incidencies;
     }
+    @Override
+    public String toString() {
+        StringBuilder resultat = new StringBuilder();
+
+        for (PaginaBitacola pagina : paginesBit) {
+            resultat.append(pagina.toString())  // Llama automáticamente al toString() correcto
+                    .append("\n----------------------------------------\n");
+        }
+
+        return resultat.toString();
+    }
 }
 
 
