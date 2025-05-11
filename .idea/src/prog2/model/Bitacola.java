@@ -41,6 +41,9 @@ public class Bitacola implements InBitacola {
 
         return resultat.toString();
     }
+    public ArrayList<PaginaBitacola> getPaginesBit() {
+        return this.paginesBit;
+    }
 }
 
 
