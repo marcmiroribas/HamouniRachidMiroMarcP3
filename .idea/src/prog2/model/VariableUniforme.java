@@ -17,6 +17,9 @@ public class VariableUniforme {
         this.random = new Random(seed);
     }
 
+    public VariableUniforme(float min, float max) {
+    }
+
     public int seguentValor() {
         return random.nextInt(100);
     }

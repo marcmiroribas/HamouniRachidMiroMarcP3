@@ -4,7 +4,7 @@ import prog2.vista.CentralUBException;
 public class BombaRefrigerant implements InBombaRefrigerant{
     private int id;
     private boolean activada;
-    private boolean foraDeServei;
+    public boolean foraDeServei;
     private VariableUniforme variableUniforme;
     private static final float CAP_REFRIGERACIO = 250;
     private static final float COST_OPERACIONAL = 130;
